@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package     Dadolun_SibCore
+ * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
+ * @license     Open Source License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Dadolun_SibCore::sendinblue" title="Sendinblue" translate="title" sortOrder="50"/>
+            </resource>
+        </resources>
+    </acl>
+</config>
