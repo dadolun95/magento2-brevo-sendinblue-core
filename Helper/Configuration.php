@@ -48,7 +48,7 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
      * @return bool
      */
     public function isServiceActive() {
-        if ($this->getValue('api_key_v3') !== null && $this->getValue('api_key_status')) {
+        if ($this->getFlag('enabled') && $this->getValue('api_key_v3') !== null && $this->getValue('api_key_status')) {
             return true;
         }
         return false;
