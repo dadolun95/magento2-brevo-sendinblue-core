@@ -2,7 +2,9 @@
 
 ## Features
 Core functionality for Sendinblue - Magento2 integration.
+
 In order to get a complete functionality you need to install at least Dadolun_SibContactSync module: https://github.com/dadolun95/magento2-sib-contact-sync
+
 Another available free module is Dadolun_SibOrderSync: https://github.com/dadolun95/magento2-sib-order-sync
 
 ## Installation
