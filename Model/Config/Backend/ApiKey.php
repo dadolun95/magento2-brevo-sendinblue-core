@@ -8,7 +8,7 @@
 namespace Dadolun\SibCore\Model\Config\Backend;
 
 use Dadolun\SibCore\Helper\SibClientConnector;
-use Sendinblue\Sendinblue\Model\SibClient;
+use Dadolun\SibCore\Model\SibClient;
 use Dadolun\SibCore\Helper\Configuration;
 
 /**
