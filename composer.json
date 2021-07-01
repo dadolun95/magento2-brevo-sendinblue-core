@@ -8,7 +8,8 @@
         "sendinblue/api-v3-sdk": "^7.2.0"
     },
     "license": [
-        "OSL-3.0"
+        "OSL-3.0",
+        "AFL-3.0"
     ],
     "authors": [
         {
