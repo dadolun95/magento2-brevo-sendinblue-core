@@ -9,24 +9,41 @@ Another available free module is Dadolun_SibOrderSync: https://github.com/dadolu
 
 ## Installation
 You can install this module adding it on app/code folder or with composer.
+
 ##### COMPOSER
-You need to update your composer.json "repositories" node:
+###### REPMAN.IO (Preferred)
+You can require the main project repository directly adding a "repositories" node on your composer.json:
+```
+{
+    "type": "composer", 
+    "url": "https://dadolun_sib.repo.repman.io"
+}
+```
+and executing this command:
+```
+composer require dadolun95/magento2-sib-order-sync
+```
+###### VCS 
+Same result specifing a VCS type node on composer:
 ```
 {
     "type": "vcs",
     "url":  "git@github.com:dadolun95/magento2-sib-core.git"
 }
 ```
-Then execute this command:
 ```
-composer require dadolun95/magento2-sib-core
+composer require dadolun95/magento2-sib-order-sync
 ```
+##### MAGENTO
 Then you'll need to enable the module and update your database:
 ```
 php bin/magento module:enable Dadolun_SibCore
+php bin/magento module:enable Dadolun_SibContactSync
+php bin/magento module:enable Dadolun_SibOrderSync
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 ```
+
 ##### CONFIGURATION
 You must enable the module from "Stores > Configurations > Dadolun > Sendinblue > General" section.
 The debugger logs each API v3 call result and response code and also observer calls. 
