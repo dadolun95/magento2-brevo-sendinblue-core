@@ -12,6 +12,10 @@ You can install this module adding it on app/code folder or with composer.
 
 ##### COMPOSER
 ###### REPMAN.IO (Preferred)
+Add Dadolun_Sib repman organization access token on composer:
+```
+composer config --global --auth http-basic.dadolun_sib.repo.repman.io token e8d9440ca95f7a67c6c70cce55a2352322b89e2fc8c1c7391cd9052578aa6e77
+```
 You can require the main project repository directly adding a "repositories" node on your composer.json:
 ```
 {
