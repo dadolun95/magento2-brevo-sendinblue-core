@@ -1,4 +1,6 @@
-# Dadolun_SibCore
+# Sendinblue Magento2 Module
+
+### Dadolun_SibCore
 
 ## Features
 Core functionality for Sendinblue - Magento2 integration.
