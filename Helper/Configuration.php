@@ -21,7 +21,7 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
 
     const CONFIG_SECTION_PATH = 'dadolun_sib';
     const CONFIG_GROUP_PATH = 'sendinblue';
-    const MODULE_CONFIG_PATH = self::CONFIG_SECTION_PATH . DS . self::CONFIG_GROUP_PATH;
+    const MODULE_CONFIG_PATH = self::CONFIG_SECTION_PATH . '/' . self::CONFIG_GROUP_PATH;
 
     /**
      * @var WriterInterface
@@ -62,7 +62,7 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getValue($val)
     {
-        return $this->scopeConfig->getValue(self::MODULE_CONFIG_PATH . DS . $val, ScopeInterface::SCOPE_STORE);
+        return $this->scopeConfig->getValue(self::MODULE_CONFIG_PATH . '/' . $val, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -75,7 +75,7 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function setValue($pathVal, $val, $scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT, $scopeId = 0)
     {
-        $this->configWriter->save(self::MODULE_CONFIG_PATH . DS . $pathVal, $val, $scope, $scopeId);
+        $this->configWriter->save(self::MODULE_CONFIG_PATH . '/' . $pathVal, $val, $scope, $scopeId);
     }
 
     /**
@@ -99,7 +99,7 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getFlag($val)
     {
-        return $this->scopeConfig->isSetFlag(self::MODULE_CONFIG_PATH . DS . $val, ScopeInterface::SCOPE_STORE);
+        return $this->scopeConfig->isSetFlag(self::MODULE_CONFIG_PATH . '/' . $val, ScopeInterface::SCOPE_STORE);
     }
 
 }
