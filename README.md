@@ -1,9 +1,9 @@
-# Sendinblue Magento2 Module <img src="https://avatars.githubusercontent.com/u/168457?s=40&v=4" alt="magento" />
+# Brevo Magento2 Module <img src="https://avatars.githubusercontent.com/u/168457?s=40&v=4" alt="magento" />
 
 ### Dadolun_SibCore
 
 ## Features
-Core functionality for Sendinblue - Magento2 integration.
+Core Sync functionality for Brevo (Sendinblue previously) - Magento2 integration.
 
 In order to get a complete functionality you need to install at least Dadolun_SibContactSync module: https://github.com/dadolun95/magento2-sib-contact-sync
 
