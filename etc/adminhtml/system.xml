@@ -3,7 +3,7 @@
 /**
  * @package     Dadolun_SibCore
  * @copyright   Copyright (c) 2023 Dadolun (https://www.dadolun.com)
- * @license     Open Source License
+ * @license    This code is licensed under MIT license (see LICENSE for details)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -21,15 +21,23 @@
                 <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Enable Sendinblue Integration</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Dadolun\SibCore\Model\Config\Backend\IntegrationStatus</backend_model>
                 </field>
                 <field id="api_key_v3" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Sendinblue Api Key</label>
+                    <frontend_class>required-entry</frontend_class>
                     <backend_model>Dadolun\SibCore\Model\Config\Backend\ApiKey</backend_model>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
                 </field>
-                <field id="debug_enabled" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="api_key_status" translate="label,comment" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Sendinblue Api key check passed</label>
+                    <frontend_model>Dadolun\SibCore\Block\Adminhtml\Config\ApiKeyStatus</frontend_model>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable integration and insert a valid API key</comment>
+                </field>
+                <field id="debug_enabled" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Is Debug Log enabled?</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends>

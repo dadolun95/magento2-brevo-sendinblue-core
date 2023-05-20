@@ -2,7 +2,7 @@
 /**
  * @package     Dadolun_SibCore
  * @copyright   Copyright (c) 2023 Dadolun (https://www.dadolun.com)
- * @license     Open Source License
+ * @license    This code is licensed under MIT license (see LICENSE for details)
  */
 
 namespace Dadolun\SibCore\Model\Config\Backend;
@@ -13,6 +13,7 @@ use Dadolun\SibCore\Helper\Configuration;
 use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\Framework\App\Config;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\App\Config\Value;
 use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Model\Context;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
@@ -24,7 +25,7 @@ use Magento\Framework\Message\ManagerInterface;
  * Class ApiKey
  * @package Dadolun\SibCore\Model\Config\Backend
  */
-class ApiKey extends \Magento\Framework\App\Config\Value
+class ApiKey extends Value
 {
     const SIB_FR_COUNTRY_CODE = 'france';
     const SIB_FR_DATE_FORMAT = 'mm-dd-yyyy';
@@ -81,7 +82,7 @@ class ApiKey extends \Magento\Framework\App\Config\Value
     }
 
     /**
-     * @return \Magento\Framework\App\Config\Value|void
+     * @return Value|void
      * @throws ApiException
      */
     public function beforeSave()
@@ -117,7 +118,8 @@ class ApiKey extends \Magento\Framework\App\Config\Value
                 $this->configHelper->setValue('api_key_status', 0);
                 $this->messageManager->addErrorMessage(__('Invalid API key setted up'));
             }
-        } catch (\Exception $e) {;
+        } catch (\Exception $e) {
+            ;
             $this->_dataSaveAllowed = false;
             $this->messageManager->addErrorMessage(__('Invalid API key setted up'));
         }

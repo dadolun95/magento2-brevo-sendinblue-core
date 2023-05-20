@@ -2,7 +2,7 @@
 /**
  * @package     Dadolun_SibCore
  * @copyright   Copyright (c) 2023 Dadolun (https://www.dadolun.com)
- * @license     Open Source License
+ * @license    This code is licensed under MIT license (see LICENSE for details)
  */
 
 namespace Dadolun\SibCore\Model;
@@ -17,6 +17,7 @@ use \SendinBlue\Client\Api\TransactionalSMSApi;
 use \SendinBlue\Client\Api\TransactionalEmailsApi;
 use \SendinBlue\Client\Api\SMSCampaignsApi;
 use \SendinBlue\Client\Api\SendersApi;
+use SendinBlue\Client\Model\CreateDoiContact;
 use \SendinBlue\Client\Model\CreatedProcessId;
 use \SendinBlue\Client\Model\CreateModel;
 use \SendinBlue\Client\Model\CreateSmtpEmail;
@@ -379,6 +380,7 @@ class SibClient
             new HttpClient(),
             $this->config
         );
+
         $createContact = new CreateContact($data);
         $result = $apiInstance->createContactWithHttpInfo($createContact);
         $this->lastResponseCode = $result[1];
