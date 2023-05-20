@@ -2,7 +2,7 @@
     "name": "dadolun95/magento2-sib-core",
     "description": "Magento2 Sendinblue Core Integration Module",
     "type": "magento2-module",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "require": {
         "sendinblue/api-v3-sdk": "^8.4.0"
     },
@@ -14,7 +14,7 @@
         {
             "name": "Davide Lunardon",
             "email": "dadolun@gmail.com",
-            "homepage": "https://github.com/dadolun95",
+            "homepage": "https://www.dadolun.com",
             "role": "Developer"
         }
     ],

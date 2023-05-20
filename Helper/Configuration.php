@@ -1,12 +1,13 @@
 <?php
 /**
  * @package     Dadolun_SibCore
- * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
+ * @copyright   Copyright (c) 2023 Dadolun (https://www.dadolun.com)
  * @license     Open Source License
  */
 
 namespace Dadolun\SibCore\Helper;
 
+use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface;
@@ -16,7 +17,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
  * Class Configuration
  * @package Dadolun\SibCore\Helper
  */
-class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
+class Configuration extends AbstractHelper
 {
 
     const CONFIG_SECTION_PATH = 'dadolun_sib';

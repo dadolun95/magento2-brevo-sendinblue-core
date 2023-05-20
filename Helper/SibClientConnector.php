@@ -1,21 +1,22 @@
 <?php
 /**
  * @package     Dadolun_SibCore
- * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
+ * @copyright   Copyright (c) 2023 Dadolun (https://www.dadolun.com)
  * @license     Open Source License
  */
 
 namespace Dadolun\SibCore\Helper;
 
+use Dadolun\SibCore\Model\SibClient;
+use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
-use \Dadolun\SibCore\Helper\Configuration;
-use \Dadolun\SibCore\Model\SibClientFactory;
+use Dadolun\SibCore\Model\SibClientFactory;
 
 /**
  * Class SibClientConnector
  * @package Dadolun\SibCore\Helper
  */
-class SibClientConnector extends \Magento\Framework\App\Helper\AbstractHelper
+class SibClientConnector extends AbstractHelper
 {
     /**
      * @var SibClientFactory
@@ -46,7 +47,7 @@ class SibClientConnector extends \Magento\Framework\App\Helper\AbstractHelper
 
     /**
      * @param string $key
-     * @return \Dadolun\SibCore\Model\SibClient
+     * @return SibClient
      */
     public function createSibClient($key = '')
     {
@@ -54,7 +55,7 @@ class SibClientConnector extends \Magento\Framework\App\Helper\AbstractHelper
             $key = $this->configHelper->getValue('api_key_v3');
         }
         /**
-         * @var \Dadolun\SibCore\Model\SibClient $sibClient
+         * @var SibClient $sibClient
          */
         $sibClient = $this->sibClientFactory->create();
         $sibClient->setApiKey($key);

@@ -1,12 +1,13 @@
 <?php
 /**
  * @package     Dadolun_SibCore
- * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
+ * @copyright   Copyright (c) 2023 Dadolun (https://www.dadolun.com)
  * @license     Open Source License
  */
 
 namespace Dadolun\SibCore\Helper;
 
+use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use \Psr\Log\LoggerInterface;
 
@@ -14,14 +15,14 @@ use \Psr\Log\LoggerInterface;
  * Class DebugLogger
  * @package Dadolun\SibCore\Helper
  */
-class DebugLogger extends \Magento\Framework\App\Helper\AbstractHelper
+class DebugLogger extends AbstractHelper
 {
     /**
      * @var LoggerInterface
      */
     protected $logger;
     /**
-     * @var \Dadolun\SibCore\Helper\Configuration
+     * @var Configuration
      */
     protected $configurationHelper;
     /**
@@ -33,7 +34,7 @@ class DebugLogger extends \Magento\Framework\App\Helper\AbstractHelper
      * DebugLogger constructor.
      * @param Context $context
      * @param LoggerInterface $logger
-     * @param \Dadolun\SibCore\Helper\Configuration $configurationHelper
+     * @param Configuration $configurationHelper
      */
     public function __construct(
         Context $context,

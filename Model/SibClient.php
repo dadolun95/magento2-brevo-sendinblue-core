@@ -1,13 +1,14 @@
 <?php
 /**
  * @package     Dadolun_SibCore
- * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
+ * @copyright   Copyright (c) 2023 Dadolun (https://www.dadolun.com)
  * @license     Open Source License
  */
 
 namespace Dadolun\SibCore\Model;
 
 use \GuzzleHttp\Client as HttpClient;
+use SendinBlue\Client\ApiException;
 use \SendinBlue\Client\Configuration as ClientConfiguration;
 use \SendinBlue\Client\Api\ContactsApi;
 use \SendinBlue\Client\Api\AccountApi;
@@ -16,10 +17,24 @@ use \SendinBlue\Client\Api\TransactionalSMSApi;
 use \SendinBlue\Client\Api\TransactionalEmailsApi;
 use \SendinBlue\Client\Api\SMSCampaignsApi;
 use \SendinBlue\Client\Api\SendersApi;
+use \SendinBlue\Client\Model\CreatedProcessId;
+use \SendinBlue\Client\Model\CreateModel;
+use \SendinBlue\Client\Model\CreateSmtpEmail;
+use \SendinBlue\Client\Model\CreateUpdateContactModel;
+use \SendinBlue\Client\Model\GetAccount;
+use \SendinBlue\Client\Model\GetAttributes;
+use \SendinBlue\Client\Model\GetExtendedContactDetails;
+use \SendinBlue\Client\Model\GetFolderLists;
+use \SendinBlue\Client\Model\GetFolders;
+use \SendinBlue\Client\Model\GetLists;
+use \SendinBlue\Client\Model\GetSendersList;
+use \SendinBlue\Client\Model\GetSmtpTemplateOverview;
+use \SendinBlue\Client\Model\GetSmtpTemplates;
 use \SendinBlue\Client\Model\RequestContactImport;
 use \SendinBlue\Client\Model\CreateAttribute;
 use \SendinBlue\Client\Model\CreateUpdateFolder;
 use \SendinBlue\Client\Model\CreateContact;
+use SendinBlue\Client\Model\SendSms;
 use \SendinBlue\Client\Model\SendTransacSms;
 use \SendinBlue\Client\Model\UpdateContact;
 use \SendinBlue\Client\Model\SendSmtpEmail;
@@ -66,8 +81,8 @@ class SibClient
     }
 
     /**
-     * @return \SendinBlue\Client\Model\GetAccount
-     * @throws \SendinBlue\Client\ApiException
+     * @return GetAccount
+     * @throws ApiException
      */
     public function getAccount()
     {
@@ -106,8 +121,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\GetLists
-     * @throws \SendinBlue\Client\ApiException
+     * @return GetLists
+     * @throws ApiException
      */
     public function getLists($data)
     {
@@ -129,8 +144,8 @@ class SibClient
     /**
      * @param $folder
      * @param $data
-     * @return \SendinBlue\Client\Model\GetFolderLists
-     * @throws \SendinBlue\Client\ApiException
+     * @return GetFolderLists
+     * @throws ApiException
      */
     public function getListsInFolder($folder, $data)
     {
@@ -150,8 +165,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\CreatedProcessId
-     * @throws \SendinBlue\Client\ApiException
+     * @return CreatedProcessId
+     * @throws ApiException
      */
     public function importUsers($data)
     {
@@ -177,7 +192,7 @@ class SibClient
     /**
      * @param int $folder
      * @return array
-     * @throws \SendinBlue\Client\ApiException
+     * @throws ApiException
      */
     public function getAllLists($folder = 0)
     {
@@ -206,8 +221,8 @@ class SibClient
     }
 
     /**
-     * @throws \SendinBlue\Client\ApiException
-     * @return \SendinBlue\Client\Model\GetAttributes
+     * @throws ApiException
+     * @return GetAttributes
      */
     public function getAttributes()
     {
@@ -230,7 +245,7 @@ class SibClient
      * @param $name
      * @param $data
      * @return array
-     * @throws \SendinBlue\Client\ApiException
+     * @throws ApiException
      */
     public function createAttribute($type, $name, $data)
     {
@@ -251,8 +266,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\GetFolders
-     * @throws \SendinBlue\Client\ApiException
+     * @return GetFolders
+     * @throws ApiException
      */
     public function getFolders($data)
     {
@@ -272,7 +287,7 @@ class SibClient
 
     /**
      * @return array
-     * @throws \SendinBlue\Client\ApiException
+     * @throws ApiException
      */
     public function getFoldersAll()
     {
@@ -290,8 +305,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\CreateModel
-     * @throws \SendinBlue\Client\ApiException
+     * @return CreateModel
+     * @throws ApiException
      */
     public function createFolder($data)
     {
@@ -312,8 +327,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\GetLists
-     * @throws \SendinBlue\Client\ApiException
+     * @return GetLists
+     * @throws ApiException
      */
     public function createList($data)
     {
@@ -334,8 +349,8 @@ class SibClient
 
     /**
      * @param $email
-     * @return \SendinBlue\Client\Model\GetExtendedContactDetails
-     * @throws \SendinBlue\Client\ApiException
+     * @return GetExtendedContactDetails
+     * @throws ApiException
      */
     public function getUser($email)
     {
@@ -355,8 +370,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\CreateUpdateContactModel
-     * @throws \SendinBlue\Client\ApiException
+     * @return CreateUpdateContactModel
+     * @throws ApiException
      */
     public function createUser($data)
     {
@@ -379,7 +394,7 @@ class SibClient
      * @param $email
      * @param $data
      * @return array
-     * @throws \SendinBlue\Client\ApiException
+     * @throws ApiException
      */
     public function updateUser($email, $data)
     {
@@ -400,8 +415,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\SendSms
-     * @throws \SendinBlue\Client\ApiException
+     * @return SendSms
+     * @throws ApiException
      */
     public function sendSms($data)
     {
@@ -422,8 +437,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\CreateSmtpEmail
-     * @throws \SendinBlue\Client\ApiException
+     * @return CreateSmtpEmail
+     * @throws ApiException
      */
     public function sendTransactionalTemplate($data)
     {
@@ -444,8 +459,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\CreateModel
-     * @throws \SendinBlue\Client\ApiException
+     * @return CreateModel
+     * @throws ApiException
      */
     public function createSmsCampaign($data)
     {
@@ -467,8 +482,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\GetSmtpTemplates
-     * @throws \SendinBlue\Client\ApiException
+     * @return GetSmtpTemplates
+     * @throws ApiException
      */
     public function getEmailTemplates($data)
     {
@@ -488,7 +503,7 @@ class SibClient
 
     /**
      * @return array
-     * @throws \SendinBlue\Client\ApiException
+     * @throws ApiException
      */
     public function getAllEmailTemplates()
     {
@@ -497,7 +512,7 @@ class SibClient
         $limit = 50;
         do {
             /**
-             * @var \SendinBlue\Client\Model\GetSmtpTemplates $templateData
+             * @var GetSmtpTemplates $templateData
              */
             $templateData = $this->getEmailTemplates(array('templateStatus' => 'true', 'limit' => $limit, 'offset' => $offset));
             $loadedTemplates = [];
@@ -523,8 +538,8 @@ class SibClient
 
     /**
      * @param $id
-     * @return \SendinBlue\Client\Model\GetSmtpTemplateOverview
-     * @throws \SendinBlue\Client\ApiException
+     * @return GetSmtpTemplateOverview
+     * @throws ApiException
      */
     public function getTemplateById($id)
     {
@@ -544,8 +559,8 @@ class SibClient
 
     /**
      * @param $data
-     * @return \SendinBlue\Client\Model\CreateSmtpEmail
-     * @throws \SendinBlue\Client\ApiException
+     * @return CreateSmtpEmail
+     * @throws ApiException
      */
     public function sendEmail($data)
     {
@@ -565,8 +580,8 @@ class SibClient
     }
 
     /**
-     * @return \SendinBlue\Client\Model\GetSendersList
-     * @throws \SendinBlue\Client\ApiException
+     * @return GetSendersList
+     * @throws ApiException
      */
     public function getSenders()
     {
