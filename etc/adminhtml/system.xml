@@ -13,18 +13,18 @@
             <label>Dadolun</label>
         </tab>
         <section id="dadolun_sib" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>Sendinblue</label>
+            <label>Brevo</label>
             <tab>dadolun</tab>
             <resource>Dadolun_SibCore::sendinblue</resource>
             <group id="sendinblue" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
                 <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Enable Sendinblue Integration</label>
+                    <label>Enable Brevo Integration</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <backend_model>Dadolun\SibCore\Model\Config\Backend\IntegrationStatus</backend_model>
                 </field>
                 <field id="api_key_v3" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Sendinblue Api Key</label>
+                    <label>Brevo Api Key</label>
                     <frontend_class>required-entry</frontend_class>
                     <backend_model>Dadolun\SibCore\Model\Config\Backend\ApiKey</backend_model>
                     <depends>
@@ -32,7 +32,7 @@
                     </depends>
                 </field>
                 <field id="api_key_status" translate="label,comment" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Sendinblue Api key check passed</label>
+                    <label>Brevo Api key check passed</label>
                     <frontend_model>Dadolun\SibCore\Block\Adminhtml\Config\ApiKeyStatus</frontend_model>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Enable integration and insert a valid API key</comment>

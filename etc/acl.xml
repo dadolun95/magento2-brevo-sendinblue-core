@@ -11,7 +11,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Dadolun_SibCore::sendinblue" title="Sendinblue" translate="title" sortOrder="50"/>
+                <resource id="Dadolun_SibCore::sendinblue" title="Brevo" translate="title" sortOrder="50"/>
             </resource>
         </resources>
     </acl>
