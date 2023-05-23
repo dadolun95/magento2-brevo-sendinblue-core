@@ -2,12 +2,15 @@
 
 ### Dadolun_SibCore
 
+[![Latest Stable Version](https://poser.pugx.org/dadolun95/magento2-sib-core/v/stable)](https://packagist.org/packages/dadolun95/magento2-sib-core)
+
 ## Features
 Core Sync functionality for Brevo (Sendinblue previously) - Magento2 integration.
 
-In order to get a complete functionality you need to install at least Dadolun_SibContactSync module: https://github.com/dadolun95/magento2-sib-contact-sync
+In order to get a complete functionality you need to install Dadolun_SibOrderSync module: https://github.com/dadolun95/magento2-sib-order-sync
 
-Another available free module is Dadolun_SibOrderSync: https://github.com/dadolun95/magento2-sib-order-sync
+## Compatibility
+Magento CE(EE) 2.4.4, 2.4.5, 2.4.6
 
 ## Installation
 You can install this module adding it on app/code folder or with composer.
