@@ -27,7 +27,7 @@ php bin/magento setup:di:compile
 ```
 
 ##### CONFIGURATION
-You must enable the module from "Stores > Configurations > Dadolun > Sendinblue > General" section.
+You must enable the module from "Stores > Configurations > Dadolun > Brevo > General" section.
 The debugger logs each API v3 call result and response code and also observer calls. 
 Remember to disable the debugger on production enviroment cause can slow down the website.
 
