@@ -1,0 +1,32 @@
+<?php
+/**
+ * @package     Dadolun_SibCore
+ * @copyright   Copyright (c) 2023 Dadolun (https://www.dadolun.com)
+ * @license    This code is licensed under MIT license (see LICENSE for details)
+ */
+use Dadolun\SibCore\ViewModel\TrackingData;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+
+/**
+ * @var SecureHtmlRenderer $secureRenderer
+ * @var TrackingData $trackingData
+ */
+$trackingData = $block->getData('trackingData');
+$automationKey = $trackingData->getAutomationKey();
+?>
+<?php if ($automationKey): ?>
+<?php
+$scriptString = <<<script
+require(['Magento_Customer/js/customer-data'], function(customerData) {
+    let customer = customerData.get('customer');
+    customer.subscribe(function (customer) {
+        window.sib = { equeue: [], client_key: "{$automationKey}" };
+        /* OPTIONAL: email for identify request*/
+        window.sib.email_id = typeof customer.email !== 'undefined' && customer.email ? customer.email: '';
+        window.sendinblue = {}; for (var j = ['track', 'identify', 'trackLink', 'page'], i = 0; i < j.length; i++) { (function(k) { window.sendinblue[k] = function() { var arg = Array.prototype.slice.call(arguments); (window.sib[k] || function() { var t = {}; t[k] = arg; window.sib.equeue.push(t);})(arg[0], arg[1], arg[2]);};})(j[i]);}var n = document.createElement("script"),i = document.getElementsByTagName("script")[0]; n.type = "text/javascript", n.id = "sendinblue-js", n.async = !0, n.src = "https://sibautomation.com/sa.js?key=" + window.sib.client_key, i.parentNode.insertBefore(n, i), window.sendinblue.page();
+    }, this);
+});
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false); ?>
+<?php endif; ?>

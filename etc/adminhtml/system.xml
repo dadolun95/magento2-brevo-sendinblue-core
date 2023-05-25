@@ -44,6 +44,20 @@
                         <field id="enabled">1</field>
                     </depends>
                 </field>
+                <field id="tracking_enabled" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow Brevo to track visitor actions on your store website</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="automation_key" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Automation tracking key</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="tracking_enabled">1</field>
+                    </depends>
+                </field>
             </group>
         </section>
     </system>

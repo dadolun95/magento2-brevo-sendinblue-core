@@ -25,4 +25,7 @@
             <argument name="logger" xsi:type="object">Dadolun\SibCore\Model\Method\IntegrationLogger</argument>
         </arguments>
     </type>
+    <type name="Magento\Customer\CustomerData\Customer">
+        <plugin name="sib_add_email_section_data" type="Dadolun\SibCore\Plugin\AddCustomerEmailOnSectionData" />
+    </type>
 </config>

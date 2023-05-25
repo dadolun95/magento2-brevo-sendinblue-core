@@ -33,14 +33,12 @@ class IntegrationStatus extends Value
     protected $configHelper;
 
     /**
-     * ApiKey constructor.
+     * IntegrationStatus constructor.
      * @param Context $context
      * @param Registry $registry
      * @param ScopeConfigInterface $config
      * @param TypeListInterface $cacheTypeList
-     * @param SibClientConnector $sibClientConnector
      * @param Configuration $configHelper
-     * @param ManagerInterface $messageManager
      * @param AbstractResource|null $resource
      * @param AbstractDb|null $resourceCollection
      * @param array $data
