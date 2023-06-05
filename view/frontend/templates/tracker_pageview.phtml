@@ -1,0 +1,27 @@
+<?php
+/**
+ * @package     Dadolun_SibCore
+ * @copyright   Copyright (c) 2023 Dadolun (https://www.dadolun.com)
+ * @license    This code is licensed under MIT license (see LICENSE for details)
+ */
+use Dadolun\SibCore\ViewModel\TrackingData;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+
+/**
+ * @var SecureHtmlRenderer $secureRenderer
+ * @var TrackingData $trackingData
+ */
+$trackingData = $block->getData('trackingData');
+$automationKey = $trackingData->getAutomationKey();
+?>
+<?php if ($automationKey): ?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Dadolun_SibCore/js/tracking/pageview": {
+            "pageData": <?= $trackingData->getPageData() ?>
+        }
+    }
+}
+</script>
+<?php endif; ?>

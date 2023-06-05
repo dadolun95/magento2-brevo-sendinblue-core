@@ -15,5 +15,12 @@
                 </arguments>
             </block>
         </referenceBlock>
+        <referenceContainer name="after.body.start">
+            <block name="sib_tracking_pageview" as="sib_tracking_pageview" template="Dadolun_SibCore::tracker_pageview.phtml">
+                <arguments>
+                    <argument name="trackingData" xsi:type="object">Dadolun\SibCore\ViewModel\TrackingData</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
     </body>
 </page>

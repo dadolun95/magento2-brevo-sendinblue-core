@@ -44,8 +44,14 @@
                         <field id="enabled">1</field>
                     </depends>
                 </field>
-                <field id="tracking_enabled" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="tracking_enabled" translate="label,comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Allow Brevo to track visitor actions on your store website</label>
+                    <comment>
+                        <![CDATA[You must also check that tracker is enabled on Brevo going to "Automations > Settings > Tracking code".<br/>
+                        See documentation <a href="https://help.brevo.com/hc/en-us/articles/209465705-What-is-Brevo-Tracker-and-how-can-I-install-it-" target="_blank">HERE</a>.<br/>
+                        Once all configurations are setted-up, flush magento cache and ensure that "pageview" events are tracked on Brevo going to "Automations > Log > Event Log".
+                        ]]>
+                    </comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <depends>
                         <field id="enabled">1</field>
