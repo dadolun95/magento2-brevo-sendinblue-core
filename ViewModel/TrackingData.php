@@ -91,58 +91,65 @@ class TrackingData implements ArgumentInterface
      * @return string
      */
     public function getPageData() {
-        switch ($this->request->getFullActionName()) {
-            case "cms_index_index":
-                $this->pageData = [
-                    "homepage" => [
-                        "ma_title" => "Homepage",
-                        "ma_url" => $this->url->getCurrentUrl()
-                    ]
-                ];
-                break;
-            case "catalog_product_view":
-                /**
-                 * @var Product $product
-                 */
-                $product = $this->registry->registry('product');
-                $this->pageData = [
-                    "productpage" => [
-                        "ma_title" => $product->getName(),
-                        "ma_url" => $this->url->getCurrentUrl(),
-                    ]
-                ];
-                break;
-            case "catalog_category_view":
-                /**
-                 * @var Category $category
-                 */
-                $category = $this->registry->registry('category');
-                $this->pageData = [
-                    "categorypage" => [
-                        "ma_title" => $category->getName(),
-                        "ma_url" => $this->url->getCurrentUrl(),
-                    ]
-                ];
-                break;
-                break;
-            case "checkout_cart_index":
-                $this->pageData = [
-                    "cart" => [
-                        "ma_title" => "Cart",
-                        "ma_url" => $this->url->getCurrentUrl(),
-                    ]
-                ];
-                break;
-            case "checkout_index_index":
-                $this->pageData = [
-                    "checkout" => [
-                        "ma_title" => "Checkout",
-                        "ma_url" => $this->url->getCurrentUrl(),
-                    ]
-                ];
-                break;
-            default:
-                break;
+        try {
+            switch ($this->request->getFullActionName()) {
+                case "cms_index_index":
+                    $this->pageData = [
+                        "homepage" => [
+                            "ma_title" => "Homepage",
+                            "ma_url" => $this->url->getCurrentUrl()
+                        ]
+                    ];
+                    break;
+                case "catalog_product_view":
+                    /**
+                     * @var Product $product
+                     */
+                    $product = $this->registry->registry('product');
+                    if ($product && $product->getId()) {
+                        $this->pageData = [
+                            "productpage" => [
+                                "ma_title" => $product->getName(),
+                                "ma_url" => $this->url->getCurrentUrl(),
+                            ]
+                        ];
+                    }
+                    break;
+                case "catalog_category_view":
+                    /**
+                     * @var Category $category
+                     */
+                    $category = $this->registry->registry('category');
+                    if ($category && $category->getId()) {
+                        $this->pageData = [
+                            "categorypage" => [
+                                "ma_title" => $category->getName(),
+                                "ma_url" => $this->url->getCurrentUrl(),
+                            ]
+                        ];
+                    }
+                    break;
+                case "checkout_cart_index":
+                    $this->pageData = [
+                        "cart" => [
+                            "ma_title" => "Cart",
+                            "ma_url" => $this->url->getCurrentUrl(),
+                        ]
+                    ];
+                    break;
+                case "checkout_index_index":
+                    $this->pageData = [
+                        "checkout" => [
+                            "ma_title" => "Checkout",
+                            "ma_url" => $this->url->getCurrentUrl(),
+                        ]
+                    ];
+                    break;
+                default:
+                    break;
+            }
+        } catch (\Exception $e) {
+            $this->pageData = [];
         }
         return $this->jsonHelper->jsonEncode($this->pageData);
     }
